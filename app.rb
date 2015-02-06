@@ -23,9 +23,14 @@ end
 
 get '/games/:id' do
   @game = Game.find(params.fetch('id'))
-  @display_word = @game.display_word
+  @display_word = WordLetter.display_word
   erb :game
 end
 
-# patch '/games/:id' do
-#   params.fetch("letter")
+
+
+patch '/games/:id' do
+  letter = params.fetch("letter")
+  WordLetter.check_letter(letter)
+  redirect '/games/' + params.fetch("id")
+end
