@@ -12,5 +12,11 @@ RSpec.configure do |config|
     UsedLetter.all.each do |used_letter|
       used_letter.destroy
     end
+    WordLetter.all.each do |word_letter|
+      word_letter.destroy
+    end
+    Game.all.each do |game|
+      game.destroy
+    end
   end
 end
